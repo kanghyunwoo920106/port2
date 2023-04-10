@@ -10,16 +10,16 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     flexFlow: "column",
     justifyContent: "center",
-    alignItems: "center",
+    // alignItems: "center",
   },
 }));
 
 export default function Main(props) {
-  const { fullPageRef, value, afterChange } = props;
+  const { fullPageRef, value, beforeChange } = props;
   const classes = useStyles();
 
   return (
-    <FullPage ref={fullPageRef} afterChange={afterChange}>
+    <FullPage ref={fullPageRef} beforeChange={beforeChange}>
       <Slide value="1" className={classes.body}>
         <Typed
           strings={[
@@ -31,8 +31,10 @@ export default function Main(props) {
           typeSpeed={40}
           backSpeed={50}
           attr="placeholder"
-          showCursor={true}
-          loop
+          smartBackspace
+          showCursor
+          cursorChar="|"
+          // loop
         >
           <input
             type="text"

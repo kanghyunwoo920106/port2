@@ -13,6 +13,8 @@ const useStyles = makeStyles(() => ({
     position: "fixed",
     top: "0",
     boxShadow: "4px 1px 5px -2px rgba(255, 255, 255, 0.5);",
+    backgroundColor: "#fff",
+    zIndex: 10,
   },
 }));
 
@@ -21,8 +23,6 @@ export default function Header(props) {
   const { value } = useSelector((state) => state);
   const { handleChange } = props;
   const classes = useStyles();
-
-  console.log(value);
 
   return (
     <TabContext value={value}>

@@ -26,6 +26,7 @@ const initialState = {
   userData: { firstName: "", lastName: "", id: "", password: "" },
   footerNavState: "",
   value: "1",
+  progress: 0,
 };
 // 액션 타입 정의
 const SET_DATAS = "SET_DATAS";
@@ -51,6 +52,7 @@ const SET_MEMBERINFO = "SET_MEMBERINFO";
 const SET_USERDATA = "SET_USERDATA";
 const SET_FOOTERNAVSTATE = "SET_FOOTERNAVSTATE";
 const SET_VALUE = "SET_VALUE";
+const SET_PROGRESS = "SET_PROGRESS";
 
 // 액션 생성 함수 정의
 export const setDatas = (datas) => ({
@@ -167,6 +169,11 @@ export const setFooterNavState = (footerNavState) => ({
 export const setValue = (value) => ({
   type: SET_VALUE,
   value,
+});
+
+export const setProgress = (progress) => ({
+  type: SET_PROGRESS,
+  progress,
 });
 
 // 리듀서 함수 정의
@@ -288,6 +295,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         value: action.value,
+      };
+
+    case SET_PROGRESS:
+      return {
+        ...state,
+        progress: action.progress,
       };
 
     default:

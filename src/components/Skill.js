@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Progress from "./Progress";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -33,9 +33,10 @@ const Title = styled("div")(({ theme }) => ({
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
-  padding: theme.spacing(1),
+  padding: theme.spacing(0.4),
   textAlign: "left",
   color: theme.palette.text.secondary,
+  boxShadow: "none",
 }));
 
 export default function Skill(props) {
@@ -69,29 +70,32 @@ export default function Skill(props) {
       {Object.keys(groupedSkills).map((title, index) => {
         return (
           <Grid item xs={6} key={index}>
-            <Typography variant="caption" display="block" gutterBottom>
+            <Typography
+              variant="caption"
+              display="block"
+              gutterBottom
+              data-aos="fade-left"
+              data-aos-duration="2000"
+            >
               {title}
             </Typography>
             {groupedSkills[title].map((item, index) => (
-              <Item
-                key={index}
-                data-aos={index / 2 == 0 ? "fade-left" : "fade-right"}
-              >
-                <Box sx={{}}>
+              <Item key={index} data-aos="fade-left" data-aos-duration="3000">
+                <Box sx={{ display: "flex", alignItems: "center" }}>
                   <Button
                     variant="contained"
                     startIcon={<JavascriptIcon />}
                     sx={{
-                      marginRight: "15px",
-                      borderRadius: "30px",
-                      fontSize: "0.8rem",
+                      marginRight: "7px",
+                      // borderRadius: "30px",
+                      fontSize: "0.1rem",
                     }}
                   >
                     {Array.isArray(item.skill)
                       ? item.skill.join(", ")
                       : item.skill}
                   </Button>
-                  <Progress value={item.progressValue} />
+                  <Progress values={item.progressValue} />
                 </Box>
               </Item>
             ))}

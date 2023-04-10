@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import LinearProgress from "@mui/material/LinearProgress";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { useSelector } from "react-redux";
 
 function LinearProgressWithLabel(props) {
   return (
@@ -25,18 +26,20 @@ LinearProgressWithLabel.propTypes = {
 
 export default function Progress(props) {
   const [progress, setProgress] = useState(0);
-  const { value } = props;
+  const { values } = props;
+  const { value } = useSelector((state) => state);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prevProgress) =>
-        prevProgress == value ? value : prevProgress + 10
+        prevProgress == values ? values : prevProgress + 10
       );
     }, 400);
     return () => {
       clearInterval(timer);
+      setProgress(0);
     };
-  }, []);
+  }, [value]);
 
   return (
     <Box sx={{ width: "100%" }}>
