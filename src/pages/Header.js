@@ -10,6 +10,7 @@ import { setValue } from "../store/store.js";
 const useStyles = makeStyles(() => ({
   header: {
     width: "100%",
+    height: "50px",
     position: "fixed",
     top: "0",
     boxShadow: "4px 1px 5px -2px rgba(255, 255, 255, 0.5);",

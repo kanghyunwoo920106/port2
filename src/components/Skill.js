@@ -75,12 +75,16 @@ export default function Skill(props) {
               display="block"
               gutterBottom
               data-aos="fade-left"
-              data-aos-duration="2000"
+              data-aos-duration={`${index}000`}
             >
               {title}
             </Typography>
             {groupedSkills[title].map((item, index) => (
-              <Item key={index} data-aos="fade-left" data-aos-duration="3000">
+              <Item
+                key={index}
+                data-aos="fade-left"
+                data-aos-duration={`${index}000`}
+              >
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <Button
                     variant="contained"
