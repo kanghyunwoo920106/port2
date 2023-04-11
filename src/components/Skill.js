@@ -41,6 +41,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Skill(props) {
   const skillArray = [
+    { title: "# Language", skill: "HTML", progressValue: 80 },
+    { title: "# Language", skill: "CSS", progressValue: 80 },
     { title: "# Language", skill: "JavaScript", progressValue: 70 },
     { title: "# Frontend", skill: "React", progressValue: 60 },
     { title: "# Backend", skill: "Node.js", progressValue: 60 },
@@ -49,6 +51,7 @@ export default function Skill(props) {
     { title: "# Deployment", skill: "AWS", progressValue: 50 },
     { title: "# Deployment", skill: "Cafe24", progressValue: 60 },
     { title: "# Library", skill: "Material Ui", progressValue: 80 },
+    { title: "# Library", skill: "Bootstrap", progressValue: 80 },
   ];
 
   function groupByTitle(array) {
@@ -75,20 +78,15 @@ export default function Skill(props) {
               display="block"
               gutterBottom
               data-aos="fade-left"
-              data-aos-duration={`${index}000`}
+              data-aos-duration="1000"
             >
               {title}
             </Typography>
             {groupedSkills[title].map((item, index) => (
-              <Item
-                key={index}
-                data-aos="fade-left"
-                data-aos-duration={`${index}000`}
-              >
+              <Item key={index} data-aos="fade-left" data-aos-duration="2000">
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <Button
                     variant="contained"
-                    startIcon={<JavascriptIcon />}
                     sx={{
                       marginRight: "7px",
                       // borderRadius: "30px",

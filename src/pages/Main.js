@@ -7,6 +7,7 @@ import TimeLine from "../components/TimeLine";
 import IconButton from "@mui/material/IconButton";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import Typography from "@mui/material/Typography";
+import Project from "../components/Project";
 
 const useStyles = makeStyles(() => ({
   body: {
@@ -138,7 +139,7 @@ export default function Main(props) {
         <TimeLine />
       </Slide>
       <Slide value="4" className={classes.body}>
-        4
+        <Project />
       </Slide>
       <Slide value="5" className={classes.body}>
         5

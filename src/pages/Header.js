@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import { makeStyles } from "@mui/styles";
@@ -14,7 +15,7 @@ const useStyles = makeStyles(() => ({
     position: "fixed",
     top: "0",
     boxShadow: "4px 1px 5px -2px rgba(255, 255, 255, 0.5);",
-    backgroundColor: "#fff",
+    backgroundColor: "#121212",
     zIndex: 10,
   },
 }));
@@ -26,20 +27,22 @@ export default function Header(props) {
   const classes = useStyles();
 
   return (
-    <TabContext value={value}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <TabList
-          onChange={handleChange}
-          aria-label="header"
-          className={classes.header}
-        >
-          <Tab label="&lt;header/&gt;" value="1" />
-          <Tab label="&lt;skill/&gt;" value="2" />
-          <Tab label="&lt;timeline/&gt;" value="3" />
-          <Tab label="&lt;project/&gt;" value="4" />
-          <Tab label="&lt;footer/&gt;" value="5" />
-        </TabList>
-      </Box>
-    </TabContext>
+    <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        variant="scrollable"
+        scrollButtons
+        allowScrollButtonsMobile
+        aria-label="scrollable force tabs example"
+        className={classes.header}
+      >
+        <Tab label="&lt;header/&gt;" value="1" />
+        <Tab label="&lt;skill/&gt;" value="2" />
+        <Tab label="&lt;timeline/&gt;" value="3" />
+        <Tab label="&lt;project/&gt;" value="4" />
+        <Tab label="&lt;footer/&gt;" value="5" />
+      </Tabs>
+    </Box>
   );
 }

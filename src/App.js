@@ -24,10 +24,11 @@ export default function App() {
       },
     },
     palette: {
-      primary: red,
-      background: {
-        paper: "#ff0000",
-      },
+      // primary: red,
+      // background: {
+      //   paper: "#ff0000",
+      // },
+      mode: "dark",
     },
   });
 
@@ -58,8 +59,8 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Header handleChange={handleChange} />
       <Container>
-        <Header handleChange={handleChange} />
         <Main fullPageRef={fullPageRef} beforeChange={beforeChange} />
       </Container>
     </ThemeProvider>
