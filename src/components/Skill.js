@@ -37,6 +37,7 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "left",
   color: theme.palette.text.secondary,
   boxShadow: "none",
+  borderRadius: 0,
 }));
 
 export default function Skill(props) {
@@ -72,25 +73,26 @@ export default function Skill(props) {
     <Grid container spacing={2}>
       {Object.keys(groupedSkills).map((title, index) => {
         return (
-          <Grid item xs={6} key={index}>
-            <Typography
-              variant="caption"
-              display="block"
-              gutterBottom
-              data-aos="fade-left"
-              data-aos-duration="1000"
-            >
+          <Grid
+            item
+            xs={6}
+            key={index}
+            data-aos="fade-bottom"
+            data-aos-duration="1000"
+          >
+            <Typography variant="caption" display="block" gutterBottom>
               {title}
             </Typography>
             {groupedSkills[title].map((item, index) => (
-              <Item key={index} data-aos="fade-left" data-aos-duration="2000">
+              <Item key={index}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <Button
                     variant="contained"
                     sx={{
-                      marginRight: "7px",
+                      marginRight: "15px",
                       // borderRadius: "30px",
-                      fontSize: "0.1rem",
+                      fontSize: "8px",
+                      width: "10%",
                     }}
                   >
                     {Array.isArray(item.skill)

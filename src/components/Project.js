@@ -9,11 +9,15 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { experimentalStyled as styled } from "@mui/material/styles";
-import SwipeableViews from "react-swipeable-views";
-import { autoPlay } from "react-swipeable-views-utils";
 import { makeStyles } from "@mui/styles";
+import { Link, NavLink } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react"; // basic
+import SwiperCore, { Navigation, Pagination } from "swiper";
+import "swiper/css"; //basic
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+SwiperCore.use([Navigation, Pagination]);
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -22,58 +26,65 @@ const useStyles = makeStyles(() => ({
     overflow: "hidden",
     margin: "0 auto",
   },
+  card: {
+    margin: "15px 0",
+  },
 }));
 
 export default function Project(props) {
-  const [activeStep, setActiveStep] = useState(0);
   const classes = useStyles();
+  const { projectData } = props;
 
-  const handleStepChange = (step) => {
-    setActiveStep(step);
-  };
   return (
     <>
       <Box className={classes.root}>
-        <SwipeableViews index={activeStep} onChangeIndex={handleStepChange}>
-          <Card sx={{ maxWidth: "100%" }}>
-            <CardMedia
-              sx={{ height: 240 }}
-              image="http://xkaizew.hgodo.com/port/main_bg1.png"
-              title="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                원클릭 리딩
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">VISIT SITE</Button>
-            </CardActions>
-          </Card>
-          <Card sx={{ maxWidth: "100%" }}>
-            <CardMedia
-              sx={{ height: 240 }}
-              image="http://xkaizew.hgodo.com/port/main_bg2.png"
-              title="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                원클릭 리딩
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">VISIT SITE</Button>
-            </CardActions>
-          </Card>
-        </SwipeableViews>
+        <Swiper
+          spaceBetween={10}
+          slidesPerView={2}
+          scrollbar={{ draggable: true }}
+          // navigation
+          breakpoints={{
+            768: {
+              slidesPerView: 7,
+            },
+          }}
+        >
+          {projectData.map((data, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <Card
+                  sx={{ maxWidth: "100%" }}
+                  className={classes.card}
+                  key={index}
+                  data-aos="fade-bottom"
+                  data-aos-duration="1000"
+                >
+                  <CardMedia
+                    sx={{ height: 240 }}
+                    image={data.imagePath}
+                    title="green iguana"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {data.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {data.description}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small">
+                      <NavLink to={`/portdetail/${data.id}`}>READ ME!</NavLink>
+                    </Button>
+                    <Button size="small" href={data.url} target="_blank">
+                      VISIT SITE
+                    </Button>
+                  </CardActions>
+                </Card>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </Box>
     </>
   );

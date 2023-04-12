@@ -58,11 +58,11 @@ export default function TimeLine(props) {
   const classes = useStyles();
 
   return (
-    <Timeline className={classes.root}>
+    <Timeline className={classes.root} sx={{ padding: 0 }}>
       {timeLineData.map((data, index) => {
         return (
           <TimelineItem
-            data-aos="fade-left"
+            data-aos="fade-bottom"
             data-aos-duration="1000"
             key={index}
           >
