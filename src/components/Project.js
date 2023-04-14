@@ -42,7 +42,6 @@ export default function Project(props) {
           // navigation
         >
           {projectData.map((data, index) => {
-            console.log(data.github);
             return (
               <SwiperSlide key={index}>
                 <Card

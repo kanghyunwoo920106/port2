@@ -54,13 +54,24 @@ export default function Main(props) {
   const classes = useStyles();
   const typedRef = useRef(null);
   const [activeTyped, setActiveTyped] = useState(false);
+  const [fullpage, setFullPage] = useState(true);
+
+  const handleSlideChange = (index) => {
+    if (index.to == 3) {
+      setFullPage(false);
+    } else {
+      setFullPage(true);
+    }
+  };
 
   return (
     <Container>
       <FullPage
         ref={fullPageRef}
         beforeChange={beforeChange}
-        scrollMode="full-page"
+        afterChange={handleSlideChange}
+        fullpage={fullpage}
+        // scrollMode="full-page"
       >
         <Slide value="1" className={classes.body}>
           <Typed

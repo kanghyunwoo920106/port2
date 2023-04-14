@@ -11,7 +11,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 import CardMedia from "@mui/material/CardMedia";
 import { Typography } from "@mui/material";
 import { IndeterminateCheckBoxOutlined } from "@mui/icons-material";
-import Image from "../components/Image";
+// import Image from "../components/Image";
 
 const useStyles = makeStyles(() => ({
   root: {

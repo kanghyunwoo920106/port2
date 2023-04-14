@@ -272,10 +272,6 @@ export default function App() {
   const beforeChange = (e) => {
     AOS.refresh();
     dispatch(setValue((e.to + 1).toString()));
-    // console.log(fullPageRef.current);
-
-    // if (e.to == 3) {
-    // }
   };
 
   return (
