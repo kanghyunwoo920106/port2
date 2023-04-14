@@ -11,6 +11,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 import CardMedia from "@mui/material/CardMedia";
 import { Typography } from "@mui/material";
 import { IndeterminateCheckBoxOutlined } from "@mui/icons-material";
+import Image from "../components/Image";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -81,25 +82,23 @@ export default function PortDetail(props) {
       <Grid item xs={12} style={{ margin: "0 15px" }}>
         <Card className={classes.card}>
           <Typography variant="p" className={classes.cardTitle}>
-            개발환경 <br />- CRA, Node Express,MYSQL, AWS, Cafe24, FileZila
+            개발환경 <br />- {detailData.devEnv}
           </Typography>
         </Card>
       </Grid>
       <Grid item xs={12} style={{ margin: "0 15px" }}>
         <Card className={classes.card}>
           <Typography variant="p" className={classes.cardTitle}>
-            사용기술 <br />- React,Redux, Styled-Components, Material Ui, Jwt
+            사용기술 <br />- {detailData.useSkill}
           </Typography>
         </Card>
       </Grid>
       <Grid item xs={12} style={{ margin: "0 15px" }}>
         <Card className={classes.card}>
           <Typography variant="p" className={classes.cardTitle}>
-            기능구현 <br />- 로그인 및 회원가입 jwt 사용하여 구현 <br /> -
-            게시글등록 formdata를 이용하여 개인 api 서버에 axios로 데이터
-            요청하여 받은 데이터 바인딩 <br /> - 개인 다이어리 data-fns를
-            이용하여 등록,수정,삭제 기능 구현
-            <br /> - 카카오맵 api를 사용해 포스트 등록때 장소검색 기능 개발
+            기능구현 <br />- {detailData.avatar[0]} <br /> -
+            {detailData.avatar[1]} <br /> - {detailData.avatar[2]}
+            <br /> - {detailData.avatar[3]}
           </Typography>
         </Card>
       </Grid>

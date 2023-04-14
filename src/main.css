@@ -179,4 +179,8 @@
   font-weight: bold;
   cursor: default;
   color: #777;
+}
+
+body {
+  overflow-x: hidden;
 }/*# sourceMappingURL=main.css.map */

@@ -15,6 +15,7 @@ import Grid from "@mui/material/Grid";
 import AOS from "aos";
 import PortDetail from "./pages/PortDetail";
 import { Route, Routes } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const projectData = [
   {
@@ -23,6 +24,14 @@ const projectData = [
     description: "나만의 추억과 일상을 포스트하는 사이트",
     imagePath: "http://xkaizew.hgodo.com/port/main_bg6.jpg",
     url: "http://hyunwooport.cafe24app.com/",
+    devEnv: "CRA, Node Express,MYSQL, AWS, Cafe24, FileZila, Git",
+    useSkill: "React,Redux, Styled-Components, Material Ui, Jwt",
+    avatar: [
+      "로그인 및 회원가입 jwt 사용하여 구현",
+      "게시글등록 formdata를 이용하여 개인 api 서버에 axios로 데이터요청하여 받은 데이터 바인딩",
+      "개인 다이어리 data-fns를 이용하여 등록,수정,삭제 기능 구현",
+      "카카오맵 api를 사용해 포스트 등록때 장소검색 기능 개발",
+    ],
     detailImagePath: [
       "http://xkaizew.hgodo.com/port/cpstory/20230412_144715.png",
       "http://xkaizew.hgodo.com/port/cpstory/20230412_144752.png",
@@ -36,14 +45,50 @@ const projectData = [
       "http://xkaizew.hgodo.com/port/cpstory/20230412_145257.png",
       "http://xkaizew.hgodo.com/port/cpstory/20230412_145318.png",
     ],
+    github: "https://github.com/kanghyunwoo920106/cpstory/tree/master",
   },
   {
     id: 1,
+    title: "강현우 포트폴리오 사이트",
+    description: "프론트개발자 강현우를 소개하는 리엑트 포트폴리오 사이트",
+    imagePath: "http://xkaizew.hgodo.com/port/main_bg7.png",
+    url: "http://kanghyunwoo920106.github.io/port2",
+    devEnv: "CRA, Node, MYSQL",
+    useSkill:
+      "HTML, CSS, SCSS, JAVASCRIPT, React, Styled-Components, Material Ui",
+    avatar: [
+      "project json 데이터 가져와 메인페이지 바인딩",
+      "Material Ui Typed 컴포넌트 이용하여 타이핑 효과 구현",
+      "aos js 플러그인을 이용하여 페이지 스크롤시 효과 구현",
+      "react-swiper 사용하여 프로젝트 데이터 슬라이드 구현",
+    ],
+    detailImagePath: [
+      "http://xkaizew.hgodo.com/port/port/20230414_111345_1.png",
+      "http://xkaizew.hgodo.com/port/port/20230414_111345_2.png",
+      "http://xkaizew.hgodo.com/port/port/20230414_111345_3.png",
+      "http://xkaizew.hgodo.com/port/port/20230414_111345_4.png",
+      "http://xkaizew.hgodo.com/port/port/20230414_111345_5.png",
+      "http://xkaizew.hgodo.com/port/port/20230414_111345_6.png",
+      "http://xkaizew.hgodo.com/port/port/20230414_111345_7.png",
+      "http://xkaizew.hgodo.com/port/port/20230414_111345_8.png",
+    ],
+    github: "https://github.com/kanghyunwoo920106/port2",
+  },
+  {
+    id: 2,
     title: "LIVIT",
     description:
       "지역 + 테마 두 가지만 선택하면 내가 원하는 집 영상이 실시간으로 업데이트되어 보여지는 영상 플랫폼",
     imagePath: "http://xkaizew.hgodo.com/port/main_bg4.jpg",
-    url: "",
+    url: "https://play.google.com/store/apps/details?id=com.logcompany.livit",
+    devEnv: "그누보드, Apache, MYSQL",
+    useSkill: "HTML, CSS, SCSS, JAVASCRIPT, JQUERY, PHP, BOOTSTRAP",
+    avatar: [
+      "유튜브 크롤링 데이터 api로 받아와 대시보드에 바인딩",
+      "영상 크게보기, 작게보기 필터링 기능 개발",
+      "svg 사용하여 대한민국 행정구역 지도마다 클릭 이벤트 구현 및 데이터 추출",
+      "최근 본 영상 localstorage를 이용하여 기능 개발",
+    ],
     detailImagePath: [
       "http://xkaizew.hgodo.com/port/livit/1_1카테고리.jpg",
       "http://xkaizew.hgodo.com/port/livit/1_2카테고리.jpg",
@@ -70,13 +115,22 @@ const projectData = [
       "http://xkaizew.hgodo.com/port/livit/8회원가입_유도팝업.jpg",
       "http://xkaizew.hgodo.com/port/livit/6_5공지사항_검색결과없음.jpg",
     ],
+    github: "",
   },
   {
-    id: 2,
+    id: 3,
     title: "ESG CHAIN",
     description: "ESGC 코인을 이용한 스테이킹 및 지갑 서비스",
     imagePath: "http://xkaizew.hgodo.com/port/main_bg5.png",
     url: "https://play.google.com/store/apps/details?id=com.wallet.esg",
+    devEnv: "그누보드, Apache, MYSQL",
+    useSkill: "HTML, CSS, SCSS, JAVASCRIPT, JQUERY, PHP, BOOTSTRAP",
+    avatar: [
+      "로그인 및 회원가입 기능 개발",
+      "swiper를 이용하여 메인 대시보드 페이지 슬라이드 구현",
+      "Bootstrap을 사용하여 반응형 웹으로 제작",
+      "게시글 작성, 수정 페이지 개발",
+    ],
     detailImagePath: [
       "http://xkaizew.hgodo.com/port/esg/0_0로그인.jpg",
       "http://xkaizew.hgodo.com/port/esg/0_01회원가입완료.jpg",
@@ -105,30 +159,88 @@ const projectData = [
       "http://xkaizew.hgodo.com/port/esg/6_1공지사항.jpg",
       "http://xkaizew.hgodo.com/port/esg/7_1문의_사용자.jpg",
     ],
+    github: "",
   },
   {
-    id: 3,
+    id: 4,
     title: "원클릭 리딩",
     description: "실시간 주식종목 추천 서비스 사이트 ",
     imagePath: "http://xkaizew.hgodo.com/port/main_bg1.png",
     url: "https://oneclick-stock.com/page.php?id=dashboard",
-    detailImagePath: [
-      "http://xkaizew.hgodo.com/port/1_1카테고리.jpg",
-      "http://xkaizew.hgodo.com/port/1_2카테고리.jpg",
+    devEnv: "그누보드, Apache, MYSQL",
+    useSkill: "HTML, CSS, SCSS, JAVASCRIPT, JQUERY, PHP, BOOTSTRAP",
+    avatar: [
+      "로그인 및 회원가입 기능 개발",
+      "그누보드를 이용한 게시판 연동",
+      "crud를 이용한 데이터 바인딩 작업",
+      "추천종목 적중률에 따라 적중 미적중 표시",
     ],
+    detailImagePath: [
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_1.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_2.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_3.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_4.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_5.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_6.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_7.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_8.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_9.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_10.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_11.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_12.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_13.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_14.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_15.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_16.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_17.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_18.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_19.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_20.png",
+      "http://xkaizew.hgodo.com/port/oneclick/20230413_112130_21.png",
+    ],
+    github: "",
   },
   {
-    id: 4,
+    id: 5,
     title: "MEBION",
     description: "MEBION 회사 랜딩 페이지",
     imagePath: "http://xkaizew.hgodo.com/port/main_bg2.png",
+    devEnv: "그누보드, Apache, MYSQL, Git",
+    useSkill: "HTML, CSS, SCSS, JAVASCRIPT, JQUERY, PHP, BOOTSTRAP",
+    avatar: [
+      "Fullpage js 이용하여 사이트 제작",
+      "svg 사용하여 대한민국 지도 구현 및 이벤트 적용",
+      "bootstrap 이용하여 반응형 웹앱으로 개발",
+      "",
+    ],
     detailImagePath: [
-      "http://xkaizew.hgodo.com/port/1_1카테고리.jpg",
-      "http://xkaizew.hgodo.com/port/1_2카테고리.jpg",
+      "http://xkaizew.hgodo.com/port/mebion/20230413_113036_1.png",
+      "http://xkaizew.hgodo.com/port/mebion/20230413_113036_2.png",
+      "http://xkaizew.hgodo.com/port/mebion/20230413_113036_3.png",
+      "http://xkaizew.hgodo.com/port/mebion/20230413_113036_4.png",
+      "http://xkaizew.hgodo.com/port/mebion/20230413_113036_5.png",
+      "http://xkaizew.hgodo.com/port/mebion/20230413_113036_6.png",
+      "http://xkaizew.hgodo.com/port/mebion/20230413_113036_7.png",
+      "http://xkaizew.hgodo.com/port/mebion/20230413_113036_8.png",
+      "http://xkaizew.hgodo.com/port/mebion/20230413_113036_9.png",
+      "http://xkaizew.hgodo.com/port/mebion/20230413_113036_10.png",
+      "http://xkaizew.hgodo.com/port/mebion/20230413_113036_11.png",
+      "http://xkaizew.hgodo.com/port/mebion/20230413_113036_12.png",
     ],
     url: "",
+    github: "",
   },
 ];
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App() {
   const theme = createTheme({
@@ -140,10 +252,6 @@ export default function App() {
       },
     },
     palette: {
-      // primary: red,
-      // background: {
-      //   paper: "#ff0000",
-      // },
       mode: "dark",
     },
   });
@@ -151,12 +259,6 @@ export default function App() {
   const fullPageRef = useRef(null);
   const dispatch = useDispatch();
   const { value } = useSelector((state) => state);
-
-  // const handleChange = (event, newValue) => {
-  //   fullPageRef.current.scrollToSlide(newValue - 1);
-  //   dispatch(setValue(newValue));
-  //   console.log(newValue);
-  // };
 
   useEffect(() => {
     AOS.init();
@@ -170,12 +272,17 @@ export default function App() {
   const beforeChange = (e) => {
     AOS.refresh();
     dispatch(setValue((e.to + 1).toString()));
+    // console.log(fullPageRef.current);
+
+    // if (e.to == 3) {
+    // }
   };
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       {/* <Header handleChange={handleChange} /> */}
+      <ScrollToTop />
       <Routes>
         <Route
           path="/"

@@ -6,9 +6,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
-import { experimentalStyled as styled } from "@mui/material/styles";
 import { makeStyles } from "@mui/styles";
 import { Link, NavLink } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react"; // basic
@@ -37,19 +34,15 @@ export default function Project(props) {
 
   return (
     <>
-      <Box className={classes.root}>
+      <Box>
         <Swiper
           spaceBetween={10}
-          slidesPerView={2}
+          slidesPerView={1.2}
           scrollbar={{ draggable: true }}
           // navigation
-          breakpoints={{
-            768: {
-              slidesPerView: 7,
-            },
-          }}
         >
           {projectData.map((data, index) => {
+            console.log(data.github);
             return (
               <SwiperSlide key={index}>
                 <Card
@@ -74,11 +67,23 @@ export default function Project(props) {
                   </CardContent>
                   <CardActions>
                     <Button size="small">
-                      <NavLink to={`/portdetail/${data.id}`}>READ ME!</NavLink>
+                      <NavLink
+                        to={`/portdetail/${data.id}`}
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        READ ME!
+                      </NavLink>
                     </Button>
                     <Button size="small" href={data.url} target="_blank">
                       VISIT SITE
                     </Button>
+                    {data.github != "" ? (
+                      <Button size="small" href={data.github} target="_blank">
+                        github
+                      </Button>
+                    ) : (
+                      ""
+                    )}
                   </CardActions>
                 </Card>
               </SwiperSlide>
