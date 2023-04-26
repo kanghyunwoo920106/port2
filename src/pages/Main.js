@@ -71,7 +71,8 @@ export default function Main(props) {
         beforeChange={beforeChange}
         afterChange={handleSlideChange}
         fullpage={fullpage}
-        // scrollMode="full-page"
+        touch-action="none"
+        scrollMode="full-page"
       >
         <Slide value="1" className={classes.body}>
           <Typed

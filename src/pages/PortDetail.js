@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -9,9 +9,28 @@ import { makeStyles } from "@mui/styles";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import CardMedia from "@mui/material/CardMedia";
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { IndeterminateCheckBoxOutlined } from "@mui/icons-material";
 // import Image from "../components/Image";
+import Modal from "@mui/material/Modal";
+
+function ImageModal(props) {
+  const { open, src, onClose } = props;
+  return (
+    <Modal
+      open={open}
+      onClose={onClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+      onClick={onClose}
+    >
+      <img
+        src={src}
+        style={{ width: "85%", position: "absolute", left: "8%", top: "7%" }}
+      />
+    </Modal>
+  );
+}
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -58,7 +77,20 @@ export default function PortDetail(props) {
   const { idx } = useParams();
   const { projectData } = props;
   const detailData = projectData.find(({ id }) => id == idx);
-  // console.log(detailData);
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageClick = (src) => {
+    setSelectedImage(src);
+    setModalOpen(true);
+    console.log("1");
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+    setModalOpen(false);
+  };
 
   return (
     <Grid container spacing={2}>
@@ -112,11 +144,20 @@ export default function PortDetail(props) {
                     src={`${item}?w=248&fit=crop&auto=format`}
                     srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
                     loading="lazy"
+                    onClick={() => handleImageClick(item)}
                   />
                 </ImageListItem>
               );
             })}
           </ImageList>
+          {modalOpen && (
+            <ImageModal
+              open={modalOpen}
+              src={selectedImage}
+              alt="modal image"
+              onClose={handleCloseModal}
+            />
+          )}
         </Card>
       </Grid>
     </Grid>

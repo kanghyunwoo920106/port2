@@ -27,6 +27,7 @@ const initialState = {
   footerNavState: "",
   value: "1",
   progress: 0,
+  activeIndex: 0,
 };
 // 액션 타입 정의
 const SET_DATAS = "SET_DATAS";
@@ -53,6 +54,7 @@ const SET_USERDATA = "SET_USERDATA";
 const SET_FOOTERNAVSTATE = "SET_FOOTERNAVSTATE";
 const SET_VALUE = "SET_VALUE";
 const SET_PROGRESS = "SET_PROGRESS";
+const SET_ACTIVEINDEX = "SET_ACTIVEINDEX";
 
 // 액션 생성 함수 정의
 export const setDatas = (datas) => ({
@@ -174,6 +176,11 @@ export const setValue = (value) => ({
 export const setProgress = (progress) => ({
   type: SET_PROGRESS,
   progress,
+});
+
+export const setActiveIndex = (activeIndex) => ({
+  type: SET_ACTIVEINDEX,
+  activeIndex,
 });
 
 // 리듀서 함수 정의
@@ -301,6 +308,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         progress: action.progress,
+      };
+
+    case SET_ACTIVEINDEX:
+      return {
+        ...state,
+        activeIndex: action.activeIndex,
       };
 
     default:

@@ -20,6 +20,36 @@ import { useLocation } from "react-router-dom";
 const projectData = [
   {
     id: 0,
+    title: "reddit 커뮤니티 사이트",
+    description: "reddit 커뮤니티를 클론코딩하여 개발한 사이트입니다.",
+    imagePath: "http://xkaizew.hgodo.com/port/main_bg8.jpg",
+    url: "http://http://ec2-15-164-163-51.ap-northeast-2.compute.amazonaws.com",
+    devEnv: "CRA, Node Express, AWS, Git",
+    useSkill:
+      "Next.js, Typescript, React, Postgres, Typeorm, Tailwind, Redux, Styled-Components, Jwt",
+    avatar: [
+      "로그인 및 회원가입 jwt 사용하여 구현",
+      "게시글등록 formdata를 이용하여 개인 api 서버에 axios로 데이터요청하여 받은 데이터 바인딩",
+      "개인 다이어리 data-fns를 이용하여 등록,수정,삭제 기능 구현",
+      "카카오맵 api를 사용해 포스트 등록때 장소검색 기능 개발",
+    ],
+    detailImagePath: [
+      "http://xkaizew.hgodo.com/port/cpstory/20230412_144715.png",
+      "http://xkaizew.hgodo.com/port/cpstory/20230412_144752.png",
+      "http://xkaizew.hgodo.com/port/cpstory/20230412_144921.png",
+      "http://xkaizew.hgodo.com/port/cpstory/20230412_144955.png",
+      "http://xkaizew.hgodo.com/port/cpstory/20230412_145011.png",
+      "http://xkaizew.hgodo.com/port/cpstory/20230412_145109.png",
+      "http://xkaizew.hgodo.com/port/cpstory/20230412_145130.png",
+      "http://xkaizew.hgodo.com/port/cpstory/20230412_145159.png",
+      "http://xkaizew.hgodo.com/port/cpstory/20230412_145242.png",
+      "http://xkaizew.hgodo.com/port/cpstory/20230412_145257.png",
+      "http://xkaizew.hgodo.com/port/cpstory/20230412_145318.png",
+    ],
+    github: "https://github.com/kanghyunwoo920106/community",
+  },
+  {
+    id: 1,
     title: "나만의 추억공유",
     description: "나만의 추억과 일상을 포스트하는 사이트",
     imagePath: "http://xkaizew.hgodo.com/port/main_bg6.jpg",
@@ -48,7 +78,7 @@ const projectData = [
     github: "https://github.com/kanghyunwoo920106/cpstory/tree/master",
   },
   {
-    id: 1,
+    id: 2,
     title: "강현우 포트폴리오 사이트",
     description: "프론트개발자 강현우를 소개하는 리엑트 포트폴리오 사이트",
     imagePath: "http://xkaizew.hgodo.com/port/main_bg7.png",
@@ -75,7 +105,7 @@ const projectData = [
     github: "https://github.com/kanghyunwoo920106/port2",
   },
   {
-    id: 2,
+    id: 3,
     title: "LIVIT",
     description:
       "지역 + 테마 두 가지만 선택하면 내가 원하는 집 영상이 실시간으로 업데이트되어 보여지는 영상 플랫폼",
@@ -118,7 +148,7 @@ const projectData = [
     github: "",
   },
   {
-    id: 3,
+    id: 4,
     title: "ESG CHAIN",
     description: "ESGC 코인을 이용한 스테이킹 및 지갑 서비스",
     imagePath: "http://xkaizew.hgodo.com/port/main_bg5.png",
@@ -162,7 +192,7 @@ const projectData = [
     github: "",
   },
   {
-    id: 4,
+    id: 5,
     title: "원클릭 리딩",
     description: "실시간 주식종목 추천 서비스 사이트 ",
     imagePath: "http://xkaizew.hgodo.com/port/main_bg1.png",
@@ -201,7 +231,7 @@ const projectData = [
     github: "",
   },
   {
-    id: 5,
+    id: 6,
     title: "MEBION",
     description: "MEBION 회사 랜딩 페이지",
     imagePath: "http://xkaizew.hgodo.com/port/main_bg2.png",
@@ -228,7 +258,7 @@ const projectData = [
       "http://xkaizew.hgodo.com/port/mebion/20230413_113036_12.png",
     ],
     url: "",
-    github: "",
+    github: "https://github.com/kanghyunwoo920106/mebion",
   },
 ];
 
