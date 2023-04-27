@@ -44,47 +44,49 @@ export default function Project(props) {
           {projectData.map((data, index) => {
             return (
               <SwiperSlide key={index}>
-                <Card
-                  sx={{ maxWidth: "100%" }}
-                  className={classes.card}
-                  key={index}
-                  data-aos="fade-bottom"
-                  data-aos-duration="1000"
-                >
-                  <CardMedia
-                    sx={{ height: 240 }}
-                    image={data.imagePath}
-                    title="green iguana"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {data.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {data.description}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small">
-                      <NavLink
-                        to={`/portdetail/${data.id}`}
-                        style={{ textDecoration: "none", color: "inherit" }}
-                      >
-                        READ ME!
-                      </NavLink>
-                    </Button>
-                    <Button size="small" href={data.url} target="_blank">
-                      VISIT SITE
-                    </Button>
-                    {data.github != "" ? (
-                      <Button size="small" href={data.github} target="_blank">
-                        github
+                <NavLink to={`${data.url}`}>
+                  <Card
+                    sx={{ maxWidth: "100%" }}
+                    className={classes.card}
+                    key={index}
+                    data-aos="fade-bottom"
+                    data-aos-duration="1000"
+                  >
+                    <CardMedia
+                      sx={{ height: 240 }}
+                      image={data.imagePath}
+                      title="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {data.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {data.description}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="small">
+                        <NavLink
+                          to={`/portdetail/${data.id}`}
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
+                          READ ME!
+                        </NavLink>
                       </Button>
-                    ) : (
-                      ""
-                    )}
-                  </CardActions>
-                </Card>
+                      <Button size="small" href={data.url} target="_blank">
+                        VISIT SITE
+                      </Button>
+                      {data.github != "" ? (
+                        <Button size="small" href={data.github} target="_blank">
+                          github
+                        </Button>
+                      ) : (
+                        ""
+                      )}
+                    </CardActions>
+                  </Card>
+                </NavLink>
               </SwiperSlide>
             );
           })}
