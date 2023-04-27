@@ -32,6 +32,16 @@ export default function Project(props) {
   const classes = useStyles();
   const { projectData } = props;
 
+  const handleClick = (e, url) => {
+    e.preventDefault();
+
+    window.open(url, "_blank");
+  };
+
+  const handleNav = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <>
       <Box>
@@ -44,7 +54,12 @@ export default function Project(props) {
           {projectData.map((data, index) => {
             return (
               <SwiperSlide key={index}>
-                <NavLink to={`${data.url}`}>
+                <div
+                  onClick={(e) => {
+                    handleClick(e, data.url);
+                  }}
+                  style={{ cursor: "pointer" }}
+                >
                   <Card
                     sx={{ maxWidth: "100%" }}
                     className={classes.card}
@@ -70,6 +85,7 @@ export default function Project(props) {
                         <NavLink
                           to={`/portdetail/${data.id}`}
                           style={{ textDecoration: "none", color: "inherit" }}
+                          onClick={handleNav}
                         >
                           READ ME!
                         </NavLink>
@@ -86,7 +102,7 @@ export default function Project(props) {
                       )}
                     </CardActions>
                   </Card>
-                </NavLink>
+                </div>
               </SwiperSlide>
             );
           })}
