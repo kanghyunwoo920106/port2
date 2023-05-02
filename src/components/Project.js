@@ -94,14 +94,13 @@ export default function Project(props) {
                         VISIT SITE
                       </Button>
                       {data.github != "" ? (
-                        <Button size="small">
-                          <NavLink
-                            to={`${data.github}`}
-                            style={{ textDecoration: "none", color: "inherit" }}
-                            onClick={handleNav}
-                          >
-                            github
-                          </NavLink>
+                        <Button
+                          size="small"
+                          href={data.github}
+                          target="_blank"
+                          onClick={handleNav}
+                        >
+                          github
                         </Button>
                       ) : (
                         ""
